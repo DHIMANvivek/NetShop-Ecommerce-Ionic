@@ -1,0 +1,46 @@
+<ion-content>
+    <div class="main_content_div">
+
+        <ion-label class="head_lbl center">Login to your account</ion-label>
+
+        <div class="white_div">
+            <ion-item class="username_box" lines="none">
+              <ion-label position="floating">Email</ion-label>
+               <ion-input type="text" #email required></ion-input>
+            </ion-item>
+            <ion-item class="password_box" lines="none">
+                <ion-label position="floating">Password</ion-label>
+                <ion-input type="password" #password required></ion-input>
+                <span slot="end" class="forgot_lbl" (click)="goToForgot()">Forgot ?</span>
+            </ion-item>
+        </div>
+
+        <ion-button expand="block" shape="round" (click)="logIn(email, password)">
+          Log In
+        </ion-button>
+
+        <!-- <ion-label class="or_lbl">Or sign in with social account</ion-label> -->
+
+        <ion-grid fixed>
+            <ion-row>
+                <!-- <ion-col size="6">
+                    <ion-button expand="block" color="success" shape="round"
+                    (click)="show()">
+                        <ion-icon name="call"></ion-icon>
+                    </ion-button>
+                </ion-col> -->
+                <!-- <ion-col size="6">
+                    <ion-button  type="submit"
+                    color="danger"
+                    (click)="authService.GoogleAuth()"
+                    expand="block" shape="round">
+                        <ion-icon name="logo-google"></ion-icon>
+                    </ion-button>
+                </ion-col> -->
+            </ion-row>
+        </ion-grid>
+
+        <ion-label class="bottom_lbl" (click)="goToRegister()">Don't have an account ? <span>Sign Up</span></ion-label>
+
+    </div>
+</ion-content>

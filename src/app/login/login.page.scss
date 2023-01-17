@@ -1,0 +1,91 @@
+ion-content {
+    --background: #E7DED7;
+}
+
+.main_content_div{
+    padding: 16px;
+
+    ion-label {
+        display: block;
+    }
+
+    .head_lbl {
+        font-size: 26px;
+        font-family: 'semi-bold';
+        margin-top: 60px;
+        margin-bottom: 20px;
+    }
+
+    .white_div {
+        border-radius: 10px;
+        background: white;
+        margin-bottom: 25px;
+    }
+
+    ion-item {
+        --padding-start: 0px;
+        padding-inline-start: 16px;
+        position: relative;
+
+        .forgot_lbl {
+            color: grey;
+            font-size: 14px;
+            position: absolute;
+            right: 8px;
+            top: 40%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .username_box {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom: 1px solid lightgrey;
+    }
+    .password_box {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    ion-button {
+        margin: 0px;
+        margin-bottom: 20px;
+    }
+
+    .or_lbl {
+        text-align: center;
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    ion-col {
+        padding: 0px;
+        display: block;
+        margin: auto;
+        text-align: center;
+
+        ion-button {
+            width: 100px;
+            display: block;
+            margin: auto;
+        }
+    }
+
+    .bottom_lbl {
+        width: 100%;
+        font-size: 14px;
+        position: absolute;
+        bottom: 20px;
+        text-align: center;
+        left: 50%;
+        transform: translate(-50%);
+
+        span {
+            font-family: 'semi-bold';
+        }
+    }
+
+    .center{
+      text-align: center;
+    }
+}

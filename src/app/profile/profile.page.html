@@ -1,0 +1,73 @@
+<ion-content>
+
+  <div class="main_content_div">
+
+      <div class="back_image" [style.backgroundImage]="'url(assets/imgs/14.jpg)'">
+          <div class="overlay_div" *ngFor="let item of accountDetails">
+              <div class="icn_flex">
+                  <ion-icon name="bag" (click)="goToCart()"></ion-icon>
+              </div>
+              <div class="user_back" [style.backgroundImage]="'url(https://vivekdhiman.engineer/api/'+item.img+')'"></div>
+              <ion-label class="name_lbl">Hello, {{item.name}}</ion-label>
+              <ion-label class="white_lbl">{{item.address}}</ion-label>
+          </div>
+      </div>
+
+      <div class="content_div">
+          <div class="white_box" style="margin-top: -40px;">
+              <div class="item_div" style="border: 0px;" (click)="goToAccount()">
+                  <ion-icon name="people" class="first_icn"></ion-icon>
+                  <ion-label>Account</ion-label>
+                  <ion-icon name="chevron-forward" class="last_icn"></ion-icon>
+              </div>
+          </div>
+
+          <div class="white_box">
+              <div class="item_div" (click)="goToReview()">
+                  <ion-icon name="star" class="first_icn"></ion-icon>
+                  <ion-label>Review</ion-label>
+                  <ion-icon name="chevron-forward" class="last_icn"></ion-icon>
+              </div>
+              <div class="item_div" (click)="goToWishlist()">
+                  <ion-icon name="heart" class="first_icn"></ion-icon>
+                  <ion-label>Wishlist</ion-label>
+                  <ion-icon name="chevron-forward" class="last_icn"></ion-icon>
+              </div>
+              <div class="item_div" (click)="goToNotification()">
+                  <ion-icon name="notifications" class="first_icn"></ion-icon>
+                  <ion-label>Notifications</ion-label>
+                  <ion-icon name="chevron-forward" class="last_icn"></ion-icon>
+              </div>
+
+              <div class="item_div" (click)="goToOrders()">
+                <ion-icon name="cube" class="first_icn"></ion-icon>
+                  <ion-label>Orders</ion-label>
+                  <ion-icon name="chevron-forward" class="last_icn"></ion-icon>
+              </div>
+
+              <div class="item_div" (click)="goToPolicy()">
+                <ion-icon name="lock-closed" class="first_icn"></ion-icon>
+                  <ion-label>Privacy Policy</ion-label>
+                  <ion-icon name="chevron-forward" class="last_icn"></ion-icon>
+              </div>
+
+              <div class="item_div" (click)="goToTerms()">
+                <ion-icon name="receipt" class="first_icn"></ion-icon>
+                  <ion-label>Terms & Conditions</ion-label>
+                  <ion-icon name="chevron-forward" class="last_icn"></ion-icon>
+              </div>
+
+              <div class="item_div" style="border: 0px;" (click)="authService.SignOut()">
+                  <ion-icon name="power" class="first_icn"></ion-icon>
+                  <ion-label>Logout</ion-label>
+                  <ion-icon name="chevron-forward" class="last_icn"></ion-icon>
+              </div>
+          </div>
+      </div>
+
+
+
+
+  </div>
+
+</ion-content>

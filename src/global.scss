@@ -24,3 +24,44 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+.bg_image{
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+ion-modal.custom_modal {
+  .modal-wrapper{
+      width: 100% !important;
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+  }
+  &.bottom {
+      align-items: flex-end !important;
+  }
+
+  --height: 300px;
+  align-items: flex-end;
+}
+
+ion-modal.custom_modal2 {
+  .modal-wrapper{
+      width: 100% !important;
+      background: rgba(0,0,0,0);
+  }
+  &.bottom {
+      align-items: flex-end !important;
+  }
+  --height: 200px;
+  align-items: flex-end;
+}
+
+ion-modal.transparent_modal {
+  .modal-wrapper{
+      background: rgba(0,0,0,0.7);
+  }
+}
+
+.ios_pad{
+  padding-top: 40px !important;
+}

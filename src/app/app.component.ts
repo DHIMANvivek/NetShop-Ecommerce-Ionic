@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+// ui building
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   constructor() {}
+
+  uid;
+
+  setUid(id){
+    this.uid = id;
+  }
+
+  getUid(){
+    return this.uid;
+  }
 }

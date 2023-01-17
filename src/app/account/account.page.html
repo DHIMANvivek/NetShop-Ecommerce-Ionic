@@ -1,0 +1,164 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-button (click)="goBack()" fill="clear" size="small" class="back_btn">
+          <ion-icon slot="start" name="chevron-back"></ion-icon>
+          Back
+        </ion-button>
+        <ion-title>Account</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="main_content_div" *ngIf="i === 0">
+      <div *ngFor="let item of accountDetails">
+        <div class="back_user" [style.backgroundImage]="'url(https://vivekdhiman.engineer/api/'+item.img+')'" (click)="presentActionSheet()"></div>
+        <ion-label class="bold_lbl">{{item.name}}</ion-label>
+
+        <ion-item lines="none" >
+          <div>
+            <ion-label position="floating">Email ID</ion-label>
+            <ion-input style="color: black; font-weight: bold;" value={{item.email}} disabled></ion-input>
+          </div>
+        </ion-item>
+
+        <ion-item lines="none">
+            <ion-label position="floating">Phone Number</ion-label>
+            <ion-input style="color: black; font-weight: bold;" value={{item.phno}} disabled></ion-input>
+        </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="floating">Date of Birth</ion-label>
+            <ion-input style="color: black; font-weight: bold;" value={{item.dob}} disabled></ion-input>
+        </ion-item>
+        </ion-col>
+
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="floating">Gender</ion-label>
+            <ion-input style="color: black; font-weight: bold;" value={{item.gender}} disabled></ion-input>
+        </ion-item>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="floating">State</ion-label>
+            <ion-input style="color: black; font-weight: bold;" value={{item.state}} disabled></ion-input>
+        </ion-item>
+        </ion-col>
+
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="floating">City</ion-label>
+            <ion-input style="color: black; font-weight: bold;" value={{item.city}} disabled></ion-input>
+        </ion-item>
+        </ion-col>
+
+      </ion-row>
+
+  <ion-item lines="none">
+    <ion-label position="floating">Pincode</ion-label>
+    <ion-input style="color: black; font-weight: bold;" value={{item.pin}} disabled></ion-input>
+</ion-item>
+
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Address</ion-card-title>
+            <ion-card-subtitle><ion-icon name="location"></ion-icon> {{item.address}}</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-card-subtitle>{{item.city}}, {{item.state}}</ion-card-subtitle>
+          <ion-card-subtitle>{{item.pin}}</ion-card-subtitle>
+
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+        <ion-button expand="block" shape="round" (click)="updateDiv(1)">
+            Edit
+        </ion-button>
+    </div>
+
+
+<div class="main_content_div" *ngIf="i === 1">
+
+  <form [formGroup]="formdata"  (ngSubmit)="updateDetails(formdata.value)">
+    <ion-item lines="none">
+  <ion-label position="stacked">Name</ion-label>
+  <ion-input type='text' formControlName = "name"></ion-input>
+  <div *ngIf="formdata.get('name').hasError('pattern')">
+   <p style="color: red;"> Invalid Name*</p>
+  </div>
+  </ion-item>
+
+  <ion-item lines="none">
+ <ion-label position="stacked">Email</ion-label>
+  <marqueee><ion-input type='email'  formControlName = "email"></ion-input></marqueee>
+</ion-item>
+
+  <ion-item lines="none">
+  <ion-label position="stacked">Phone Number</ion-label>
+  <ion-input type='number'  formControlName = "phno"></ion-input>
+</ion-item>
+
+  <ion-item lines="none">
+  <ion-label position="stacked">Date of Birth</ion-label>
+  <ion-input type='Date'  formControlName = "dob"></ion-input>
+</ion-item>
+
+
+  <ion-label position="stacked">Gender</ion-label>
+  <ion-radio-group formControlName = "gender"><br>
+    <ion-row>
+      <ion-col>
+        <ion-label>Male</ion-label>
+        <ion-radio value="Male"></ion-radio>
+      </ion-col>
+
+      <ion-col>
+        <ion-label>Female</ion-label>
+        <ion-radio value="Female"></ion-radio>
+      </ion-col>
+    </ion-row>
+  </ion-radio-group>
+
+  <ion-item lines="none">
+  <ion-label position="stacked">Address</ion-label>
+  <ion-input type='text'  formControlName = "address"></ion-input>
+</ion-item>
+
+
+  <ion-row>
+    <ion-col>
+      <ion-item lines="none">
+      <ion-label position="stacked">State</ion-label>
+      <ion-input type='text'  formControlName = "state"></ion-input>
+    </ion-item>
+    </ion-col>
+
+    <ion-col>
+      <ion-item lines="none">
+      <ion-label position="stacked">City</ion-label>
+      <ion-input type='text'  formControlName = "city"></ion-input>
+    </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-item lines="none">
+  <ion-label position="stacked">Pincode</ion-label>
+  <ion-input type='text'  formControlName = "pincode"></ion-input>
+</ion-item>
+
+ <br/>
+  <br/>
+  <ion-button type="submit" [disabled]="!formdata.valid" fill="outline" color="success" value="Click here" >Save Changes</ion-button>
+</form>
+
+</div>
+
+</ion-content>

@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-button (click)="goBack()" fill="clear" size="small" class="back_btn">
+        <ion-icon slot="start" name="chevron-back"></ion-icon>
+        Back
+      </ion-button>
+      <ion-title>My Bag</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<div  class="main_content_div" *ngIf="cartLength < 1">
+  <img style="margin-top: 50%;" src="assets/imgs/cartempty.jpg">
+  <ion-button style="margin-left: 35%;" size="small" shape="round" (click)="goToHome()">
+    Shop Now
+  </ion-button>
+</div>
+
+  <div class="main_content_div" *ngIf="cartLength >= 1">
+    <ion-label class="grey_lbl">{{cartLength}} Items Found</ion-label>
+      <ion-list>
+          <ion-item-sliding *ngFor="let item of cartlist">
+              <ion-item lines="none">
+                  <div class="item_div">
+                      <div class="back_img" [style.backgroundImage]="'url(https://vivekdhiman.engineer/api/'+item.img+')'"></div>
+                      <div class="detail_div">
+                          <ion-label class="name_lbl">{{item.names}}</ion-label>
+                          <ion-label class="price_lbl">₹ {{item.price}}</ion-label>
+                          <ion-label class="grey_lbl">Size : {{item.size}} | Color: {{item.color}}</ion-label>
+                      </div>
+                      <div class="add_remove_div">
+                         <ion-icon name="remove" (click)="minus(item.id,item.qyt)" ></ion-icon>
+                          <ion-label>{{item.qyt}}</ion-label>
+                          <ion-icon name="add" (click)="plus(item.id,item.qyt)"></ion-icon>
+
+                      </div>
+                  </div>
+              </ion-item>
+
+              <ion-item-options side="end">
+                  <ion-item-option color="danger" (click)="delete_cart_item(item.id)">
+                      <ion-icon slot="icon-only" name="trash" ></ion-icon>
+                  </ion-item-option>
+              </ion-item-options>
+          </ion-item-sliding>
+      </ion-list>
+
+  </div>
+</ion-content>
+
+<ion-footer *ngIf="cartLength != 0">
+  <div class="footer_div">
+      <div class="grey_div" style="border-bottom: 1px solid lightgrey;">
+          <ion-label class="small_lbl">Promo Code</ion-label>
+          <ion-label class="bold_lbl">NEWAPP50</ion-label>
+      </div>
+      <div class="grey_div">
+        <ion-label class="small_lbl">Total Amount</ion-label>
+        <ion-label class="bold_lbl">₹ {{total}}</ion-label>
+      </div>
+      <div class="btn_div">
+          <ion-button expand="block" shape="round" (click)="goToCheckout(total, cartlist)">
+              Continue
+          </ion-button>
+      </div>
+  </div>
+</ion-footer>

@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-button (click)="goBack()" fill="clear" size="small" class="back_btn">
+          <ion-icon slot="start" name="chevron-back"></ion-icon>
+          Back
+        </ion-button>
+        <ion-title>Addresses</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="main_content_div">
+        <ion-label class="add_address" (click)="goToAddAddress('add')">Add Address</ion-label>
+        <div class="address_box" *ngFor="let item of [1,2,3,4,5]; let i = index" (click)="goToAddAddress('edit')">
+            <div class="flex_div">
+                <ion-label class="bold_lbl">Address {{i+1}}</ion-label>            
+                <ion-label class="edit_lbl">Edit</ion-label>
+            </div>
+            <ion-label class="simp_lbl">1234, Eva surbhi complex, Aksharwadi road, Bhavnagar - 364001</ion-label>
+        </div>
+    </div>
+</ion-content>

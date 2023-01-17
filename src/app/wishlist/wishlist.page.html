@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-button (click)="goToBack()" slot="start" fill="clear" size="small" class="back_btn">
+            <ion-icon slot="start" name="chevron-back"></ion-icon>
+            Back
+        </ion-button>
+        <ion-title>Wishlist</ion-title>
+        <ion-button fill="clear" size="small" slot="end" style="font-family: 'semi-bold';">Edit</ion-button>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div  class="main_content_div" *ngIf="wishLength < 1">
+    <img style="margin-top: 50%; margin-left: 10%;" width="80%" height="80%" src="assets/imgs/wishlistempty.jpg">
+  </div>
+
+    <div class="main_content_div" *ngIf="wishLength >= 1">
+
+        <ion-segment value="all" (ionChange)="segmentChanged($event)" mode="md">
+            <ion-segment-button value="all">
+                <ion-label>All Items</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+
+        <div class="all_div">
+            <div class="flex_header">
+                <ion-label>{{wishLength}} items</ion-label>
+                <ion-icon name="options-sharp"></ion-icon>
+            </div>
+
+            <div class="item_div" *ngFor="let item of wishlist">
+                <div class="back_image" [style.backgroundImage]="'url(https://vivekdhiman.engineer/api/'+item.img+')'"></div>
+                <div class="detail_div">
+                    <ion-label class="name_lbl">{{item.names}}</ion-label>
+                    <ion-label class="price_lbl">₹ {{item.price}}</ion-label>
+                    <ion-label class="grey_lbl">Size : {{item.size}} | Color : {{item.color}}</ion-label>
+                    <ion-button fill="outline" shape="round" size="small" (click)="add_cart(item.id,item.color,item.size)">
+                      Move to bag
+                    </ion-button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</ion-content>

@@ -1,0 +1,74 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-button (click)="goToBack()" slot="start" fill="clear" size="small" class="back_btn">
+            <ion-icon slot="start" name="chevron-back"></ion-icon>
+            Back
+        </ion-button>
+        <ion-title>Review</ion-title>
+        <ion-button size="small" slot="end" fill="clear">
+            <ion-icon name="ellipsis-horizontal"></ion-icon>
+        </ion-button>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="main_content_div">
+
+        <div class="product_div">
+            <div class="back_img" [style.backgroundImage]="'url(assets/imgs/12.jpg)'"></div>
+            <div class="detail_div">
+                <ion-label>Edition Valencia Linen shirt</ion-label>
+            </div>
+            <ion-label class="price_lbl">$24.50</ion-label>
+        </div>
+
+        <div class="content_div">
+            <div class="rating_div">
+                <ion-label class="head_lbl">4.9 <sub>out of 5</sub></ion-label>
+                <div>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star-outline"></ion-icon>
+                  <ion-label class="rate_lbl">124 Ratings</ion-label>
+                </div>
+            </div>
+
+            <div class="rating_bar">
+                <div class="rate_flex" *ngFor="let review of reviews">
+                    <ion-label class="no_lbl">{{review.no}}</ion-label>
+                    <ion-icon name="star"></ion-icon>
+                    <div class="bar_div"
+                        [style.background]="getBackground(0, review.per)"
+                    ></div>
+                    <ion-label class="per_lbl">{{review.per}}%</ion-label>
+                </div>
+            </div>
+
+            <div class="flex_header">
+                <ion-label>13 Reviews</ion-label>
+                <ion-label>Write a review</ion-label>
+            </div>
+
+            <div class="review_div" *ngFor="let item of users">
+                <div class="round_user" [style.backgroundImage]="'url('+ item +')'"></div>
+                <div class="user_detail">
+                    <ion-label class="name_lbl">Carly west</ion-label>
+                    <div class="rating_flex">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                        <ion-label>4 out off 5, oct 20, 2020</ion-label>
+                    </div>
+                    <ion-label class="review_lbl">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</ion-label>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</ion-content>

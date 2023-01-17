@@ -1,0 +1,165 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ADMIN PANEL</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card style="background-color: lightgreen;">
+    <ion-card-header>
+      <ion-card-title style="text-align: center;">PRODUCTS</ion-card-title>
+    </ion-card-header>
+    </ion-card>
+
+  <div *ngIf="k===1">
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col></ion-col>
+      <ion-col size="2">
+        <a (click)="update_div(0)">Close</a>
+      </ion-col>
+    </ion-row>
+
+<ion-card>
+  <ion-card-content>
+    <form [formGroup]="formdata"  (ngSubmit)="onClickSubmit(formdata.value)">
+      <ion-label position="stacked">Brand</ion-label>
+      <ion-select formControlName = "brand">
+        <ion-select-option  *ngFor="let item of brand_list">{{item}}</ion-select-option>
+      </ion-select>
+
+      <ion-label position="stacked">Category</ion-label>
+      <ion-select formControlName = "category" (ionChange)="get_subCategory(formdata.value)">
+        <ion-select-option  *ngFor="let item of cat_list">{{item}}</ion-select-option>
+      </ion-select>
+
+      <ion-label position="stacked">Sub-Category</ion-label>
+      <ion-select formControlName = "subcategory">
+        <ion-select-option  *ngFor="let item of subcat_list">{{item}}</ion-select-option>
+      </ion-select>
+
+      <ion-label position="stacked">Name</ion-label>
+      <ion-input type="text" formControlName = "names"></ion-input>
+
+
+
+
+      <ion-label position="stacked">Colour</ion-label>
+      <ion-select formControlName = "colour">
+        <ion-select-option>Red</ion-select-option>
+        <ion-select-option>Black</ion-select-option>
+        <ion-select-option>Navy Blue</ion-select-option>
+        <ion-select-option>Sky Blue</ion-select-option>
+        <ion-select-option>Grey</ion-select-option>
+        <ion-select-option>Pink</ion-select-option>
+        <ion-select-option>Green</ion-select-option>
+        <ion-select-option>Yellow</ion-select-option>
+        <ion-select-option>Orange</ion-select-option>
+      </ion-select>
+
+      <ion-label position="stacked">Size</ion-label>
+      <ion-select formControlName = "size">
+        <ion-select-option>S</ion-select-option>
+        <ion-select-option>M</ion-select-option>
+        <ion-select-option>L</ion-select-option>
+        <ion-select-option>XL</ion-select-option>
+        <ion-select-option>XXL</ion-select-option>
+      </ion-select>
+
+      <ion-label position="stacked">Price</ion-label>
+    <ion-input type='number'  formControlName = "price"></ion-input>
+   <ion-label position="stacked">Description</ion-label>
+    <ion-input type='text'  formControlName = "descs"></ion-input>
+
+   <!-- <div *ngIf="formdata.controls['userName'].invalid && formdata.controls['userName'].touched" class="alert alert-danger">
+    <div *ngIf="formdata.controls['userName'].errors.required">
+    Name is required.
+  </div>
+</div> -->
+   <br/>
+    <br/>
+    <ion-button type="submit" fill="outline" color="success" value="Click here" >Save Changes</ion-button>
+ </form>
+  </ion-card-content>
+</ion-card>
+</div>
+
+
+<div *ngIf="k===2">
+  <ion-row>
+    <ion-col></ion-col>
+    <ion-col></ion-col>
+    <ion-col size="2">
+      <a (click)="update_div(0)">Close</a>
+    </ion-col>
+  </ion-row>
+
+<ion-card>
+<ion-card-content>
+  <form [formGroup]="formdata" (ngSubmit)="onClickSubmitBrand(formdata.value)" >
+    <ion-label position="stacked">Select Brand</ion-label>
+    <ion-select formControlName = "brand">
+      <ion-select-option>Nike</ion-select-option>
+      <ion-select-option>Woodland</ion-select-option>
+      <ion-select-option>Addidas</ion-select-option>
+      <ion-select-option>US Polo</ion-select-option>
+      <ion-select-option>Peter England</ion-select-option>
+      <ion-select-option>Allen Solly</ion-select-option>
+    </ion-select>
+ <br/>
+  <br/>
+  <ion-button type="submit" fill="outline" color="success" value="Click here" >Save</ion-button>
+</form>
+</ion-card-content>
+</ion-card>
+</div>
+
+<div *ngIf="k===3">
+  <ion-row>
+    <ion-col></ion-col>
+    <ion-col></ion-col>
+    <ion-col size="2">
+      <a (click)="update_div(0)">Close</a>
+    </ion-col>
+  </ion-row>
+
+<ion-card>
+<ion-card-content>
+  <form [formGroup]="formdata" (ngSubmit)="onClickSubmitCategory(formdata.value)" >
+    <ion-label position="stacked">Select Category</ion-label>
+    <ion-select formControlName = "category" (ionChange)="sub_cat()">
+      <ion-select-option>Clothing</ion-select-option>
+      <ion-select-option>Accessories</ion-select-option>
+      <ion-select-option>Electronics</ion-select-option>
+      <ion-select-option>Toys</ion-select-option>
+      <ion-select-option>Art</ion-select-option>
+    </ion-select>
+  <br/>
+    <div *ngIf="subcat_status===true">
+      <ion-label position="stacked">Enter Sub-Category</ion-label>
+      <ion-input type='text'  formControlName = "subcategory"></ion-input>
+    </div>
+  <br/>
+
+  <ion-button type="submit" fill="outline" color="success" value="Click here" >Save</ion-button>
+</form>
+</ion-card-content>
+</ion-card>
+</div>
+
+<div *ngIf="k===0">
+  <ion-row>
+    <ion-col><a (click)="update_div(2)">Add New Brand</a></ion-col>
+    <ion-col><a (click)="update_div(3)">Add New Category</a></ion-col>
+  </ion-row>
+<br>
+  <ion-content>
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="update_div(1)">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+</div>
+
+</ion-content>

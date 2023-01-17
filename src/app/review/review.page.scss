@@ -1,0 +1,161 @@
+ion-toolbar {
+    ion-button {
+        margin: 0;
+        font-family: 'bold';
+    }
+    .back_btn {
+        font-size: 14px;
+    }
+}
+.main_content_div {
+    ion-label {
+        display: block;
+    }
+    .product_div {
+        padding: 16px;
+        display: flex;
+        box-shadow: 0px 3px 6px rgba(0,0,0,0.3);
+
+        .back_img {
+            height: 50px;
+            width: 50px;
+            border-radius: 5px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .detail_div {
+            padding-left: 10px;
+
+            ion-label {
+                font-family: 'semi-bold';
+                width: 70%;
+            }
+        }
+        .price_lbl {
+            font-family: 'semi-bold';
+        }
+    }
+    .content_div {
+        padding: 16px;
+
+        .rating_div {
+            display: flex;
+            justify-content: space-between;
+
+            .head_lbl {
+                font-size: 30px;
+                font-family: 'bold';
+            }
+            sub {
+                font-size: 12px;
+                text-transform: uppercase;
+                color: grey;
+            }
+            ion-icon {
+                color: orange;
+                margin-right: 3px;
+            }
+            .rate_lbl {
+                color: grey;
+                font-size: 14px;
+            }
+        }
+
+        .rating_bar {
+            margin-top: 16px;
+            .rate_flex {
+                display: flex;
+                align-items: center;
+                margin-bottom: 5px;
+                .no_lbl {
+                    color: grey;
+                    font-size: 14px;
+                    // margin-right: 5px;
+                    width: 20px;
+                    text-align: left;
+                }
+
+                ion-icon {
+                    color: orange;
+                    margin-right: 10px;
+                    font-size: 17px;
+                }
+
+                .bar_div {
+                    height: 4px;
+                    width: 100%;
+                    // background: orange;
+                    // background: linear-gradient(
+                    //     to right, 
+                    //     var(--ion-color-primary) 0%, 
+                    //     var(--ion-color-primary) 60%, 
+                    //     #EEEEEE 50%, 
+                    //     #EEEEEE 100%
+                    // );
+                }
+
+                .per_lbl {
+                    font-size: 13px;
+                    margin-left: 10px;
+                }
+            }
+        }
+
+        .flex_header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px;
+            ion-label {
+                font-size: 14px;
+                color: grey;
+            }
+        }
+
+        .review_div {
+            padding-top: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid lightgrey;
+            display: flex;
+
+            .round_user {
+                height: 45px;
+                width: 45px;
+                min-width: 45px;
+                border-radius: 100%;
+                background-position: top;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .user_detail {
+                padding-left: 10px;
+
+                .name_lbl {
+                    font-size: 15px;
+                    font-family: 'semi-bold';
+                }
+                .rating_flex {
+                    display: flex;
+                    align-items: center;
+
+                    ion-icon {
+                        margin-right: 3px;
+                        color: orange;
+                    }
+                    ion-label {
+                        margin-left: 10px;
+                        font-size: 14px;
+                        color: grey;
+                    }
+                }
+                .review_lbl {
+                    // color: grey;
+                    margin-top: 2px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

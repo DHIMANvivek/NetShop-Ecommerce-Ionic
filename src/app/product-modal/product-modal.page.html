@@ -1,0 +1,22 @@
+<ion-content>
+    <div class="main_content_div">
+        <div class="back_image" [style.backgroundImage]="'url(assets/imgs/11.jpg)'">
+            <div class="close_btn" (click)="close()">
+              <ion-icon name="close"></ion-icon>
+            </div>
+        </div>
+        <div class="content_div">
+            <ion-label>Success ! You've added this item to your bag.</ion-label>
+
+            <ion-button expand="block" shape="round" (click)="goToCart()">
+              <ion-icon slot="end" name="arrow-forward"></ion-icon>
+              Checkout
+            </ion-button>
+
+            <ion-button expand="block" shape="round" class="shop_btn" (click)="goToShop()">
+              Continue Shopping
+            </ion-button>
+
+        </div>
+    </div>
+</ion-content>

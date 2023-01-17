@@ -1,0 +1,78 @@
+<ion-content>
+    <div class="main_content_div">
+
+        <ion-slides pager="ios">
+            <ion-slide *ngFor="let item of sliders">
+                <div class="back_image" [style.backgroundImage]="'url('+ item +')'">
+                  <div class="overlay_div">
+                      <div class="icn_flex">
+                          <ion-icon name="heart-outline" style="width: 23px;" (click)="goToWishlist()"></ion-icon>
+                          <ion-icon name="bag" (click)="goToCart()" ></ion-icon>
+                      </div>
+                      <ion-label class="collection_lbl">SPRING COLLECTION</ion-label>
+                      <div class="line_div"></div>
+
+                      <ion-label class="off_lbl">20% OFF</ion-label>
+                      <ion-label class="white_lbl">For selected spring style</ion-label>
+                      <ion-button size="small" shape="round">
+                        Shop Now
+                      </ion-button>
+                  </div>
+                </div>
+            </ion-slide>
+        </ion-slides>
+
+
+        <div class="content_div">
+            <div class="header_flex">
+                <ion-label class="bold_lbl">Designer Collection</ion-label>
+                <ion-label class="grey_lbl" (click)="goToShopPage()">Show All</ion-label>
+            </div>
+            <div class="collection_slider">
+                <div class="main_col" *ngFor="let item of pname" (click)="goToProductDetail(item.id)">
+                    <div class="col_back" [style.backgroundImage]="'url(https://vivekdhiman.engineer/api/'+item.img+')'">
+                        <div class="round_div">
+                            <ion-icon name="heart" (click)="goToWishlist()" ></ion-icon>
+                        </div>
+                    </div>
+                    <div class="detail_div">
+                        <ion-label class="name_lbl">{{item.names}}</ion-label>
+                        <ion-label class="price_lbl">₹ {{item.price}} /-</ion-label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header_flex">
+                <ion-label class="bold_lbl">Top Trends</ion-label>
+                <ion-label class="grey_lbl" (click)="goToShopPage()">Show All</ion-label>
+            </div>
+            <div class="trend_slider">
+                <div class="main_col" *ngFor="let item of pname" (click)="goToProductDetail(item.id)">
+                    <div class="col_back" [style.backgroundImage]="'url(https://vivekdhiman.engineer/api/'+item.img+')'"></div>
+                    <div class="detail_div">
+                        <ion-label class="name_lbl">{{item.names}}</ion-label>
+                        <ion-label class="price_lbl">₹ {{item.price}} /-</ion-label>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- <div class="header_flex">
+                <ion-label class="bold_lbl">Holiday Sale</ion-label>
+                <ion-label class="grey_lbl">Show All</ion-label>
+            </div>
+            <div class="holiday_slider">
+                <div class="main_col" *ngFor="let item of product" (click)="goExplorePro()">
+                    <div class="col_back" [style.backgroundImage]="'url('+ item +')'">
+                        <div class="overlay">
+                            <ion-label class="white_lbl">Classic Men collection</ion-label>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+
+        </div>
+
+    </div>
+</ion-content>

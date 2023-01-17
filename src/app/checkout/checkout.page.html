@@ -1,0 +1,127 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-button (click)="goBack()" fill="clear" size="small" class="back_btn">
+            <ion-icon slot="start" name="chevron-back"></ion-icon>
+            Back
+        </ion-button>
+        <ion-title>Checkout</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="main_content_div">
+
+        <div class="stepper_div">
+            <ion-icon name="location-sharp" [class.activeTab]="tabID >= 1"></ion-icon>
+            <ion-label [class.activeTab]="tabID >= 2">
+                <span>•</span>
+                <span>•</span>
+                <span>•</span>
+                <span>•</span>
+            </ion-label>
+            <ion-icon name="card" [class.activeTab]="tabID >= 2"></ion-icon>
+            <ion-label [class.activeTab]="tabID == 3">
+                <span>•</span>
+                <span>•</span>
+                <span>•</span>
+                <span>•</span>
+            </ion-label>
+            <ion-icon name="checkmark-circle" [class.activeTab]="tabID == 3"></ion-icon>
+        </div>
+
+        <div class="shipping_div" *ngIf="tabID == 1" >
+        <form [formGroup]="formdata"  (ngSubmit)="update_details(formdata.value)">
+        <ion-item>
+          <ion-label position="stacked">Name</ion-label>
+          <ion-input type='text' value="name" formControlName = "name"></ion-input>
+        </ion-item>
+
+
+
+        <ion-item>
+         <ion-label position="stacked">Email</ion-label>
+          <marquee><ion-input type='email' disabled formControlName = "email"></ion-input></marquee>
+        </ion-item>
+
+          <ion-item>
+          <ion-label position="stacked">Phone Number</ion-label>
+          <ion-input type='number' disabled formControlName = "phno"></ion-input>
+        </ion-item>
+
+          <ion-item>
+          <ion-label position="stacked">Date of Birth</ion-label>
+          <ion-input type='Date' disabled formControlName = "dob"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Address</ion-label>
+          <ion-input type='text'  formControlName = "address"></ion-input>
+        </ion-item>
+
+         <br><br>
+          <ion-button  type="submit" fill="outline" color="success" value="Click here" >Continue to Payment</ion-button>
+        </form>
+
+        </div>
+
+
+        <div class="choose_card_div" *ngIf="tabID == 2">
+            <ion-label class="grey_lbl">Step 2</ion-label>
+            <ion-label class="title_header">Payment</ion-label>
+            <ion-slides mode="ios" scrollbar="ios" class="card_slider" [options]="slideCardOpts">
+                <ion-slide>
+                    <div class="card_div">
+                        <img src="assets/imgs/mastercard.png">
+                        <ion-label class="card_no">••••  ••••  ••••  0113</ion-label>
+                        <div class="flex_div">
+                            <ion-label>Vivek Dhiman</ion-label>
+                            <ion-label>11/22</ion-label>
+                        </div>
+                        <div class="side_abs"></div>
+                        <div class="bottom_abs"></div>
+                    </div>
+                </ion-slide>
+                <ion-slide>
+                    <div class="card_div">
+                        <img src="assets/imgs/mastercard.png">
+                        <ion-label class="card_no">••••  ••••  ••••  0113</ion-label>
+                        <div class="flex_div">
+                            <ion-label>Vishal Maurya</ion-label>
+                            <ion-label>11/22</ion-label>
+                        </div>
+                        <div class="side_abs"></div>
+                        <div class="bottom_abs"></div>
+                    </div>
+                </ion-slide>
+            </ion-slides>
+
+            <ion-label class="or_lbl">or checkout with</ion-label>
+
+            <ion-button (click)="payWithRazorpay()"  (click)="tabID = 3" expand="block" fill="clear" shape="round" class="paypal_btn">
+                <img src="assets/imgs/paypal.png">
+            </ion-button>
+
+            <ion-button (click)="tabID = 3" expand="block" fill="clear" shape="round" class="apple_pay">
+                <img src="assets/imgs/apple-logo.png">
+                <ion-label>Pay</ion-label>
+            </ion-button>
+
+        </div>
+
+        <div class="congo_div" *ngIf="tabID == 3">
+            <div class="abs_div">
+                <ion-label class="congo_bold">Congrats !</ion-label>
+                <ion-label class="congo_grey">Thank you for purchasing. Your order will be shipped in 2-4 working days.</ion-label>
+            </div>
+        </div>
+
+    </div>
+</ion-content>
+
+<ion-footer *ngIf="tabID == 3" class="ion-no-border">
+    <ion-toolbar style="padding: 16px;">
+        <ion-button expand="block" shape="round" style="margin-bottom: 30px;" (click)="goToOrders()">
+            Go To Orders
+        </ion-button>
+    </ion-toolbar>
+</ion-footer>

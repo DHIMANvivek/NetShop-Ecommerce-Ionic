@@ -1,0 +1,18 @@
+<ion-content>
+    <div class="main_content_div">
+        <ion-label class="title_lbl">Choose Your <br> Payment Mathod</ion-label>
+        <div class="flex_div">
+            <ion-label>Total Amount</ion-label>
+            <ion-label class="price_lbl">₹ {{total}}</ion-label>
+        </div>
+
+        <ion-button expand="block" shape="round" (click)="modalClose()">
+             Credit Card
+        </ion-button>
+
+        <ion-button expand="block" shape="round" (click)="modalClose()">
+            Razorpay
+        </ion-button>
+
+    </div>
+</ion-content>

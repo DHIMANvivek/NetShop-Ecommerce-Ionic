@@ -1,0 +1,103 @@
+ion-toolbar {
+  ion-button {
+      margin: 0;
+      font-family: 'bold';
+  }
+  .back_btn {
+      font-size: 14px;
+  }
+}
+.main_content_div {
+  padding: 16px;
+
+  ion-label {
+      display: block;
+  }
+  .grey_lbl {
+    font-size: 12px;
+    color: grey;
+}
+  ion-item{
+      --padding-start: 0px;
+      --padding-end: 0px;
+      --inner-padding-start: 0px;
+      --inner-padding-end: 0px;
+  }
+
+  .item_div {
+      display: flex;
+      border-bottom: 1px solid lightgrey;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      position: relative;
+      width: 100%;
+
+      .back_img {
+          width: 60px;
+          height: 60px;
+          border-radius: 5px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+      }
+      .detail_div {
+          padding-left: 10px;
+          position: relative;
+          .name_lbl {
+              font-family: 'semi-bold';
+              font-size: 15px;
+          }
+          .price_lbl {
+              font-family: 'medium';
+              font-size: 15px;
+          }
+          .grey_lbl {
+              font-size: 12px;
+              color: grey;
+          }
+      }
+      .add_remove_div {
+          background: #F3F2F8;
+          border-radius: 25px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 30px;
+          width: 100px;
+          padding-left: 15px;
+          padding-right: 15px;
+          position: absolute;
+          right: 0;
+
+          ion-label {
+              font-family: 'semi-bold';
+              font-size: 14px;
+          }
+      }
+  }
+}
+
+.footer_div {
+  // padding: 16px;
+  .grey_div {
+      background: #F3F2F8;
+      padding: 25px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .small_lbl {
+          color: grey;
+          font-family: 'medium';
+      }
+
+      .bold_lbl {
+          font-family: 'semi-bold';
+      }
+  }
+  .btn_div {
+      padding: 16px;
+      background: #F3F2F8;
+  }
+
+}
